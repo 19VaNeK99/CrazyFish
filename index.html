@@ -31,7 +31,7 @@
         <script src="Build/CrazyFish.loader.js"></script>
         <script src="./instant-games-bridge.js"></script>
 
-        <script src="node_modules/eruda/eruda.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/eruda"></script>
         <script>eruda.init();</script>
         <script>
             if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
@@ -51,11 +51,11 @@
                     .initialize()
                     .then(() => {
                         instantGamesBridge.advertisement.on(
-                            'interstitial_state_changed', 
+                            'interstitial_state_changed',
                             state => { unityInstance.SendMessage('Bridge', 'OnInterstitialStateChanged', state) })
 
                         instantGamesBridge.advertisement.on(
-                            'rewarded_state_changed', 
+                            'rewarded_state_changed',
                             state => { unityInstance.SendMessage('Bridge', 'OnRewardedStateChanged', state) })
 
                         instantGamesBridge.platform.sdk.subscribe((e) => {
@@ -390,9 +390,9 @@
             window.onUnityLoadingProgressChanged = function(progress) {
                 loadingText.innerHTML = Math.ceil(progress * 100) + '%'
             }
-            
+
             createUnityInstance(
-                document.querySelector('#unity-canvas'), 
+                document.querySelector('#unity-canvas'),
                 {
                     dataUrl: 'Build/CrazyFish.data',
                     frameworkUrl: 'Build/CrazyFish.framework.js',
