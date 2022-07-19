@@ -55,6 +55,15 @@
                             'rewarded_state_changed', 
                             state => { unityInstance.SendMessage('Bridge', 'OnRewardedStateChanged', state) })
 
+                        instantGamesBridge.platform.sdk.subscribe((e) => {
+                            if (e.detail.type == 'VKWebAppViewHide') {
+                                unityInstance.SendMessage('Bridge', 'WebAppViewHide')
+                            }
+                            if (e.detail.type == 'VKWebAppViewRestore') {
+                                unityInstance.SendMessage('Bridge', 'WebAppViewRestore')
+                            }
+                        });
+
                         unityInstance.SendMessage('Bridge', 'OnInitializationCompleted', 'true')
                     })
                     .catch(error => {
