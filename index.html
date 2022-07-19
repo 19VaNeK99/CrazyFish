@@ -31,9 +31,8 @@
         <script src="Build/CrazyFish.loader.js"></script>
         <script src="./instant-games-bridge.js"></script>
 
-        <script>
-            javascript: (function () { var script = document.createElement('script'); script.src = "//cdn.jsdelivr.net/npm/eruda"; document.body.appendChild(script); script.onload = function () { eruda.init() } })();
-        </script>
+        <script src="node_modules/eruda/eruda.js"></script>
+        <script>eruda.init();</script>
         <script>
             if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
                 // Mobile device style: fill the whole browser client area with the game canvas:
