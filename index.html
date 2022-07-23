@@ -29,6 +29,15 @@
         <canvas id="unity-canvas" style="width: 100%; height: 100%; background: #FFFFFF; position: absolute; top: 0px; left: 0px;"></canvas>
         <div id="loading"><span id="loading-text"></span></div>
         <script src="Build/CrazyFish.loader.js"></script>
+
+        <script>
+            var lockFunction = window.screen.orientation.lock;
+            if (lockFunction.call(window.screen.orientation, 'landscape')) {
+                console.log('Orientation locked')
+            } else {
+                console.error('There was a problem in locking the orientation')
+            }
+        </script>
         <script src="./instant-games-bridge.js"></script>
 
         <script>
